@@ -1,0 +1,18 @@
+﻿{
+    "author": "Microsoft",
+    "classifications": [ "Azure Function" ],
+    "name": "EventHubTrigger",
+    "identity": "Azure.Function.CSharp.EventHubTrigger",
+    "shortName": "EventHub",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "Microsoft",
+    "symbols": {
+        "FunctionName": {
+            "type": "parameter",
+            "defaultValue": "EventHubTriggerCSharp",
+            "replaces": "EventHubTriggerCSharp"
+        }        
+    }
+}

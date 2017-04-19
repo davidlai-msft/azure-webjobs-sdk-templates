@@ -1,0 +1,18 @@
+﻿{
+    "author": "Microsoft",
+    "classifications": [ "Azure Function" ],
+    "name": "ServiceBusQueue",
+    "identity": "Azure.Function.CSharp.ServiceBusQueueTrigger",
+    "shortName": "ServiceBusQueue",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "Microsoft",
+    "symbols": {
+        "FunctionName": {
+            "type": "parameter",
+            "defaultValue": "ServiceBusQueueTriggerCSharp",
+            "replaces": "ServiceBusQueueTriggerCSharp"
+        }        
+    }
+}

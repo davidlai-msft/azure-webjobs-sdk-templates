@@ -1,0 +1,18 @@
+﻿{
+    "author": "Microsoft",
+    "classifications": [ "Azure Function" ],
+    "name": "QueueTrigger",
+    "identity": "Azure.Function.CSharp.QueueTrigger",
+    "shortName": "StorageQueue",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "Microsoft",
+    "symbols": {
+        "FunctionName": {
+            "type": "parameter",
+            "defaultValue": "QueueTriggerCSharp",
+            "replaces": "QueueTriggerCSharp"
+        }        
+    }
+}

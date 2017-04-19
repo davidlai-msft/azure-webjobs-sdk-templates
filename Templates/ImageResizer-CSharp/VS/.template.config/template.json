@@ -1,0 +1,18 @@
+﻿{
+    "author": "Microsoft",
+    "classifications": [ "Azure Function" ],
+    "name": "ImageResizer",
+    "identity": "Azure.Function.CSharp.ImageResizer",
+    "shortName": "ImageResizer",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "Microsoft",
+    "symbols": {
+        "FunctionName": {
+            "type": "parameter",
+            "defaultValue": "ImageResizerCSharp",
+            "replaces": "ImageResizerCSharp"
+        }        
+    }
+}

@@ -1,0 +1,18 @@
+﻿{
+    "author": "Microsoft",
+    "classifications": [ "Azure Function" ],
+    "name": "BlobTrigger",
+    "identity": "Azure.Function.CSharp.BlobTrigger",
+    "shortName": "Blob",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "Microsoft",
+    "symbols": {
+        "FunctionName": {
+            "type": "parameter",
+            "defaultValue": "BlobTriggerCSharp",
+            "replaces": "BlobTriggerCSharp"
+        }        
+    }
+}
