@@ -2,11 +2,11 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace TemplateProject
+namespace Company.Function
 {
     public static class BlobTriggerCSharp
     {
-        [FunctionName("BlobTriggerCSharp")]   
+        [FunctionName("%FunctionName%")]   
         //[StorageAccount("ConnectionName")]   
         public static void Run([BlobTrigger("samples-workitems/{name}", Connection = "")]Stream myBlob, string name, TraceWriter log)
         {

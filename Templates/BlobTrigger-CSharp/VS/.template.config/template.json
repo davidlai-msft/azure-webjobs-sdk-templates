@@ -1,18 +1,40 @@
 ﻿{
     "author": "Microsoft",
-    "classifications": [ "Azure Function" ],
+    "classifications": [
+        "Azure Function"
+    ],
     "name": "BlobTrigger",
     "identity": "Azure.Function.CSharp.BlobTrigger",
     "shortName": "Blob",
     "tags": {
-        "language": "C#"
+        "language": "C#",
+        "type": "item"
     },
-    "sourceName": "Microsoft",
+    "sourceName": "Company.Function",
     "symbols": {
         "FunctionName": {
             "type": "parameter",
             "defaultValue": "BlobTriggerCSharp",
-            "replaces": "BlobTriggerCSharp"
-        }        
-    }
+            "replaces": "%FunctionName%"
+        }
+    },
+    "defaultName": "BlobTriggerCSharp",
+    "postActions": [
+        {
+            "Description": "Installing Microsoft.Azure.WebJobs Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs",
+                "version": "2.0.1-alpha1-10646",
+                "projectFileExtensions": ".csproj"
+            }
+        }
+    ]
 }
