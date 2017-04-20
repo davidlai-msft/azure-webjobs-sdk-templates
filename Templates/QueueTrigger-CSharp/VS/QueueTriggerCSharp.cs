@@ -6,7 +6,7 @@ namespace TemplateProject
 {
     public static class QueueTriggerCSharp
     {
-        [FunctionName("QueueTriggerCSharp")]
+        [FunctionName("%FunctionName%")]
         //[StorageAccount("ConnectionName")]
         public static void Run([QueueTrigger("myqueue-items", Connection = "")]string myQueueItem, TraceWriter log)
         {

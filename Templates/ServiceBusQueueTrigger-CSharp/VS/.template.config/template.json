@@ -1,18 +1,56 @@
 ﻿{
     "author": "Microsoft",
-    "classifications": [ "Azure Function" ],
-    "name": "ServiceBusQueue",
+    "classifications": [
+        "Azure Function"
+    ],
+    "name": "ServiceBusQueueTrigger",
     "identity": "Azure.Function.CSharp.ServiceBusQueueTrigger",
-    "shortName": "ServiceBusQueue",
+    "shortName": "SBQueueTrig",
     "tags": {
-        "language": "C#"
+        "language": "C#",
+        "type": "item"
     },
-    "sourceName": "Microsoft",
+    "sourceName": "Company.Function",
     "symbols": {
         "FunctionName": {
             "type": "parameter",
             "defaultValue": "ServiceBusQueueTriggerCSharp",
-            "replaces": "ServiceBusQueueTriggerCSharp"
-        }        
-    }
+            "replaces": "%FunctionName%"
+        }
+    },
+    "defaultName": "ServiceBusQueueTriggerCSharp",
+    "postActions": [
+        {
+            "Description": "Installing Microsoft.Azure.WebJobs Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs",
+                "version": "2.0.1-alpha1-10646",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "Description": "Installing Microsoft.Azure.WebJobs.ServiceBus Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs.ServiceBus",
+                "version": "2.0.1-alpha1-10646",
+                "projectFileExtensions": ".csproj"
+            }
+        }
+    ]
 }

@@ -1,11 +1,11 @@
-﻿{
+{
     "author": "Microsoft",
     "classifications": [
         "Azure Function"
     ],
-    "name": "QueueTrigger",
-    "identity": "Azure.Function.CSharp.QueueTrigger",
-    "shortName": "QueueTrig",
+    "name": "TimerTrigger",
+    "identity": "Azure.Function.CSharp.TimerTrigger",
+    "shortName": "TimerTrig",
     "tags": {
         "language": "C#",
         "type": "item"
@@ -14,11 +14,11 @@
     "symbols": {
         "FunctionName": {
             "type": "parameter",
-            "defaultValue": "QueueTriggerCSharp",
+            "defaultValue": "TimerTriggerCSharp",
             "replaces": "%FunctionName%"
         }
     },
-    "defaultName": "QueueTriggerCSharp",
+    "defaultName": "TimerTriggerCSharp",
     "postActions": [
         {
             "Description": "Installing Microsoft.Azure.WebJobs Nuget package",
@@ -33,6 +33,22 @@
                 "referenceType": "package",
                 "reference": "Microsoft.Azure.WebJobs",
                 "version": "2.0.1-alpha1-10646",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "Description": "Installing Microsoft.Azure.WebJobs.Extensions Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs.Extensions",
+                "version": "2.0.1-alpha1-10427",
                 "projectFileExtensions": ".csproj"
             }
         }

@@ -6,7 +6,7 @@ namespace TemplateProject
 {
     public static class ServiceBusTopicTriggerCSharp
     {
-        [FunctionName("ServiceBusTopicTriggerCSharp")]
+        [FunctionName("%FunctionName%")]
         public static void Run([ServiceBusTrigger("mytopic", "mysubscription", AccessRights.Manage, Connection = "")]string mySbMsg, TraceWriter log)
         {
             log.Info($"C# ServiceBus topic trigger function processed message: {mySbMsg}");

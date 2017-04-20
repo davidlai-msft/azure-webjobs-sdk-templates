@@ -7,7 +7,7 @@ namespace TemplateProject
 {
     public static class ServiceBusQueueTriggerCSharp
     {
-        [FunctionName("ServiceBusQueueTriggerCSharp")]
+        [FunctionName("%FunctionName%")]
         //[ServiceBusAccount()]
         public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "")]string myQueueItem, TraceWriter log)
         {

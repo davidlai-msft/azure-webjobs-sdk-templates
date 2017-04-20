@@ -7,8 +7,7 @@ namespace TemplateProject
 {
     public static class EventHubTriggerCSharp
     {
-        [FunctionName("EventHubTriggerCSharp")]
-        //[ServiceBusAccount()]
+        [FunctionName("%FunctionName%")]
         public static void Run([EventHubTrigger("samples-workitems")]string myEventHubMessage, TraceWriter log)
         {
             log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");

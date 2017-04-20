@@ -6,7 +6,7 @@ namespace TemplateProject
 {
     public static class TimerTriggerCSharp
     {
-        [FunctionName("TimerTriggerCSharp")]
+        [FunctionName("%FunctionName%")]
         public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");

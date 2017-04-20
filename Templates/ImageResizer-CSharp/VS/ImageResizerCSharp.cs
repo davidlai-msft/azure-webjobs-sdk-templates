@@ -10,7 +10,7 @@ namespace TemplateProject
 {
     public static class ImageResizerCSharp
     {
-        [FunctionName("ImageResizerCSharp")]
+        [FunctionName("%FunctionName%")]
         //[StorageAccount("ConnectionName")]
         public static void Run([BlobTrigger("sample-images/{name}", Connection = "")]Stream image, [Blob("sample-images-sm/{name}", Connection = "")]Stream imageSmall, [Blob("sample-images-md/{name}", Connection = "")]Stream imageMedium)  // output blobs
         {
