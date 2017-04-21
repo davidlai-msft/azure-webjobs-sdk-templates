@@ -14,8 +14,42 @@
     "symbols": {
         "FunctionName": {
             "type": "parameter",
+            "description": "Name of the function",
             "defaultValue": "ServiceBusTopicTriggerCSharp",
             "replaces": "%FunctionName%"
+        },
+        "Connection": {
+            "type": "parameter",
+            "description": "The name of the app setting containing your Service Bus connection string. The connection string must have Send rights.",
+            "defaultValue": "",
+            "replaces": "%Connection%"
+        },
+        "TopicName": {
+            "type": "parameter",
+            "description": "Topic to which the message will be sent.",
+            "defaultValue": "mytopic",
+            "replaces": "%TopicName%"
+        },
+        "SubscriptionName": {
+            "type": "parameter",
+            "description": "Subscription name within the topic to bind to.",
+            "defaultValue": "mysubscription",
+            "replaces": "%SubscriptionName%"
+        },
+        "AccessRights": {
+            "type": "parameter",
+            "description": "The access rights of the Service Bus connection string. Set to Send if you're using a connection string that doesn't have Manage permissions.",
+            "datatype": "choice",
+            "choices": [
+                {
+                    "choice": "Manage"
+                },
+                {
+                    "choice": "Listen"
+                }
+            ],
+            "replaces": "%AccessRights%",
+            "defaultValue": "Manage"
         }
     },
     "defaultName": "ServiceBusTopicTriggerCSharp",

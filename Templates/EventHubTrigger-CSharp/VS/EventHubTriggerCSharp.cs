@@ -3,12 +3,12 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.ServiceBus;
 
 
-namespace TemplateProject
+namespace Company.Function
 {
     public static class EventHubTriggerCSharp
     {
         [FunctionName("%FunctionName%")]
-        public static void Run([EventHubTrigger("samples-workitems")]string myEventHubMessage, TraceWriter log)
+        public static void Run([EventHubTrigger("%Path%")]string myEventHubMessage, TraceWriter log)
         {
             log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
         }

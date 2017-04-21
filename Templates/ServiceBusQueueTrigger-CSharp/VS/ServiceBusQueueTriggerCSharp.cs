@@ -3,13 +3,12 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.ServiceBus.Messaging;
 
-namespace TemplateProject
+namespace Company.Function
 {
     public static class ServiceBusQueueTriggerCSharp
     {
-        [FunctionName("%FunctionName%")]
-        //[ServiceBusAccount()]
-        public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "")]string myQueueItem, TraceWriter log)
+        [FunctionName("%FunctionName%")]                    
+        public static void Run([ServiceBusTrigger("%QueueName%", AccessRights.%AccessRights%, Connection = "%Connection%")]string myQueueItem, TraceWriter log)
         {
             log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
         }

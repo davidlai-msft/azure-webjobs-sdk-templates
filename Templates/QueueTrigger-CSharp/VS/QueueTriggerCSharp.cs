@@ -2,13 +2,12 @@ using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 
-namespace TemplateProject
+namespace Company.Function
 {
     public static class QueueTriggerCSharp
     {
-        [FunctionName("%FunctionName%")]
-        //[StorageAccount("ConnectionName")]
-        public static void Run([QueueTrigger("myqueue-items", Connection = "")]string myQueueItem, TraceWriter log)
+        [FunctionName("%FunctionName%")]        
+        public static void Run([QueueTrigger("%Path%", Connection = "%Connection%")]string myQueueItem, TraceWriter log)
         {
             log.Info($"C# Queue trigger function processed: {myQueueItem}");
         }

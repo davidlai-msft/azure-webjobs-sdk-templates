@@ -16,6 +16,12 @@
             "type": "parameter",
             "defaultValue": "TimerTriggerCSharp",
             "replaces": "%FunctionName%"
+        },
+        "Schedule": {
+            "type": "parameter",
+            "description": "Enter a cron expression of the format '{second} {minute} {hour} {day} {month} {day of week}' to specify the schedule.",
+            "defaultValue": "0 */5 * * * *",
+            "replaces": "%Schedule%"
         }
     },
     "defaultName": "TimerTriggerCSharp",

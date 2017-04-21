@@ -6,7 +6,7 @@ using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
 using System;
 
-namespace TemplateProject
+namespace Company.Function
 {
     public static class ImageResizerCSharp
     {
