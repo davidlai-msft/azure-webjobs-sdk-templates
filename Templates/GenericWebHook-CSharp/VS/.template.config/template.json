@@ -3,9 +3,9 @@
     "classifications": [
         "Azure Function"
     ],
-    "name": "EventHubTrigger",
-    "identity": "Azure.Function.CSharp.EventHubTrigger",
-    "shortName": "EventHubTrig",
+    "name": "GenericWebHook",
+    "identity": "Azure.Function.CSharp.GenericWebHook",
+    "shortName": "GenericWebHook",
     "tags": {
         "language": "C#",
         "type": "item"
@@ -14,20 +14,27 @@
     "symbols": {
         "FunctionName": {
             "type": "parameter",
-            "defaultValue": "EventHubTriggerCSharp",
+            "description": "Name of the function",
+            "defaultValue": "GenericWebHookCsharp",
             "replaces": "%FunctionName%"
         },
-        "Connection": {
-            "description": "The name of the app setting containing your Event Hub connection string. The connection string must have Send permissions.",
+        "AccessRights": {
             "type": "parameter",
-            "defaultValue": "",
-            "replaces": "%Connection%"
-        },
-        "Path": {
-            "description": "This is the name of the event hub to which the event will be sent.",
-            "type": "parameter",
-            "defaultValue": "samples-workitems",
-            "replaces": "%Path%"
+            "description": "Authorization level controls whether the function requires an API key and which key to use; Function uses a function key; Admin uses your master key. The function and master keys are found in the 'keys' management panel on the portal, when your function is selected.",
+            "datatype": "choice",
+            "choices": [
+                {
+                    "choice": "Function"
+                },
+                {
+                    "choice": "Anonymous"
+                },
+                {
+                    "choice": "Admin"
+                }
+            ],
+            "replaces": "%AuthLevel%",
+            "defaultValue": "function"
         }
     },
     "primaryOutputs": [
@@ -35,7 +42,7 @@
             "path": "Company.Function.csproj"
         }
     ],
-    "defaultName": "EventHubTriggerCSharp",
+    "defaultName": "GenericWebHookCsharp",
     "postActions": [
         {
             "Description": "Adding Reference to Microsoft.Azure.WebJobs Nuget package",
@@ -54,7 +61,7 @@
             }
         },
         {
-            "Description": "Adding Reference to Microsoft.Azure.WebJobs.ServiceBus Nuget package",
+            "Description": "Adding Reference to Microsoft.Azure.WebJobs.Extensions.Http",
             "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
             "ContinueOnError": "false",
             "ManualInstructions": [
@@ -64,8 +71,24 @@
             ],
             "args": {
                 "referenceType": "package",
-                "reference": "Microsoft.Azure.WebJobs.ServiceBus",
-                "version": "2.0.1-alpha1-10667",
+                "reference": "Microsoft.Azure.WebJobs.Extensions.Http",
+                "version": "1.0.0-alpha1-10432",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "Description": "Adding Reference to Newtonsoft.Json Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Newtonsoft.Json",
+                "version": "10.0.2",
                 "projectFileExtensions": ".csproj"
             }
         },

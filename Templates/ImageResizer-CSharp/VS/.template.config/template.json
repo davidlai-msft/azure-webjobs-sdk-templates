@@ -1,18 +1,108 @@
 ﻿{
     "author": "Microsoft",
-    "classifications": [ "Azure Function" ],
+    "classifications": [
+        "Azure Function"
+    ],
     "name": "ImageResizer",
     "identity": "Azure.Function.CSharp.ImageResizer",
     "shortName": "ImageResizer",
     "tags": {
-        "language": "C#"
+        "language": "C#",
+        "type": "item"
     },
-    "sourceName": "Microsoft",
+    "sourceName": "Company.Function",
     "symbols": {
         "FunctionName": {
             "type": "parameter",
+            "description": "Name of the function",
             "defaultValue": "ImageResizerCSharp",
-            "replaces": "ImageResizerCSharp"
-        }        
-    }
+            "replaces": "%FunctionName%"
+        },
+        "ImageBlobConnection": {
+            "description": "The name of the app setting containing your Storage connection.",
+            "type": "parameter",
+            "defaultValue": "",
+            "replaces": "%ImageBlobConnection%"
+        },
+        "ImageBlobPath": {
+            "description": "This is the path within your storage account that the trigger will monitor.",
+            "type": "parameter",
+            "defaultValue": "sample-images/{name}",
+            "replaces": "%ImageBlobPath%"
+        },
+        "SmallImageBlobConnection": {
+            "description": "The name of the app setting containing your Storage connection.",
+            "type": "parameter",
+            "defaultValue": "",
+            "replaces": "%SmallImageBlobConnection%"
+        },
+        "SmallImageBlobPath": {
+            "description": "This is the path within your storage account that the trigger will monitor.",
+            "type": "parameter",
+            "defaultValue": "sample-images-sm/{name}",
+            "replaces": "%SmallImageBlobPath%"
+        },
+        "MedImageBlobConnection": {
+            "description": "The name of the app setting containing your Storage connection.",
+            "type": "parameter",
+            "defaultValue": "sample-images-md/{name}",
+            "replaces": "%MedImageBlobConnection%"
+        },
+        "MedImageBlobPath": {
+            "description": "This is the path within your storage account that the trigger will monitor.",
+            "type": "parameter",
+            "defaultValue": "sample-images-md/{name}",
+            "replaces": "%MedImageBlobPath%"
+        }
+    },
+    "primaryOutputs": [
+        {
+            "path": "Company.Function.csproj"
+        }
+    ],
+    "defaultName": "ImageResizerCSharp",
+    "postActions": [
+        {
+            "Description": "Adding Reference to Microsoft.Azure.WebJobs Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs",
+                "version": "2.0.1-alpha1-10667",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "Description": "Adding Reference to ImageResizer Nuget package",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "ImageResizer",
+                "version": "4.0.5",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "description": "Restore NuGet packages required by this project.",
+            "manualInstructions": [
+                {
+                    "text": "Run 'dotnet restore'"
+                }
+            ],
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "continueOnError": true
+        }
+    ]
 }

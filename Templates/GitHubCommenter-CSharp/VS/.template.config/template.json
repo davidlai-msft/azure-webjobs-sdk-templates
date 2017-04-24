@@ -3,9 +3,9 @@
     "classifications": [
         "Azure Function"
     ],
-    "name": "QueueTrigger",
-    "identity": "Azure.Function.CSharp.QueueTrigger",
-    "shortName": "QueueTrig",
+    "name": "GitHubCommenter",
+    "identity": "Azure.Function.CSharp.GitHubCommenter",
+    "shortName": "GitHubComment",
     "tags": {
         "language": "C#",
         "type": "item"
@@ -15,20 +15,8 @@
         "FunctionName": {
             "type": "parameter",
             "description": "Name of the function",
-            "defaultValue": "QueueTriggerCSharp",
+            "defaultValue": "GitHubCommenterCSharp",
             "replaces": "%FunctionName%"
-        },
-        "Connection": {
-            "description": "The name of the app setting containing your Storage connection.",
-            "type": "parameter",
-            "defaultValue": "",
-            "replaces": "%Connection%"
-        },
-        "Path": {
-            "description": "This is the path within your storage account that the trigger will monitor.",
-            "type": "parameter",
-            "defaultValue": "myqueue-items",
-            "replaces": "%Path%"
         }
     },
     "primaryOutputs": [
@@ -36,7 +24,7 @@
             "path": "Company.Function.csproj"
         }
     ],
-    "defaultName": "QueueTriggerCSharp",
+    "defaultName": "GitHubCommenterCSharp",
     "postActions": [
         {
             "Description": "Adding Reference to Microsoft.Azure.WebJobs Nuget package",
@@ -51,6 +39,22 @@
                 "referenceType": "package",
                 "reference": "Microsoft.Azure.WebJobs",
                 "version": "2.0.1-alpha1-10667",
+                "projectFileExtensions": ".csproj"
+            }
+        },
+        {
+            "Description": "Adding Reference to Microsoft.Azure.WebJobs.Extensions.Http",
+            "ActionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
+            "ContinueOnError": "false",
+            "ManualInstructions": [
+                {
+                    "Text": "Manually add the reference to your project file"
+                }
+            ],
+            "args": {
+                "referenceType": "package",
+                "reference": "Microsoft.Azure.WebJobs.Extensions.Http",
+                "version": "1.0.0-alpha1-10432",
                 "projectFileExtensions": ".csproj"
             }
         },

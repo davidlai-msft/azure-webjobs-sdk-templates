@@ -3,9 +3,9 @@
     "classifications": [
         "Azure Function"
     ],
-    "name": "QueueTrigger",
-    "identity": "Azure.Function.CSharp.QueueTrigger",
-    "shortName": "QueueTrig",
+    "name": "FaceLocator",
+    "identity": "Azure.Function.CSharp.FaceLocator",
+    "shortName": "FaceLocator",
     "tags": {
         "language": "C#",
         "type": "item"
@@ -15,20 +15,32 @@
         "FunctionName": {
             "type": "parameter",
             "description": "Name of the function",
-            "defaultValue": "QueueTriggerCSharp",
+            "defaultValue": "FaceLocatorCSharp",
             "replaces": "%FunctionName%"
         },
-        "Connection": {
+        "BlobConnection": {
             "description": "The name of the app setting containing your Storage connection.",
             "type": "parameter",
             "defaultValue": "",
-            "replaces": "%Connection%"
+            "replaces": "%BlobConnection%"
         },
-        "Path": {
+        "BlobPath": {
             "description": "This is the path within your storage account that the trigger will monitor.",
             "type": "parameter",
-            "defaultValue": "myqueue-items",
-            "replaces": "%Path%"
+            "defaultValue": "images/{name}.jpg",
+            "replaces": "%BlobPath%"
+        },
+        "TableConnection": {
+            "description": "The name of the app setting containing your Storage connection.",
+            "type": "parameter",
+            "defaultValue": "",
+            "replaces": "%TableConnection%"
+        },
+        "TableName ": {
+            "description": "Table name in storage account where data will be written.",
+            "type": "parameter",
+            "defaultValue": "faceRectangle",
+            "replaces": "%TableName%"
         }
     },
     "primaryOutputs": [
@@ -36,7 +48,7 @@
             "path": "Company.Function.csproj"
         }
     ],
-    "defaultName": "QueueTriggerCSharp",
+    "defaultName": "FaceLocatorCSharp",
     "postActions": [
         {
             "Description": "Adding Reference to Microsoft.Azure.WebJobs Nuget package",

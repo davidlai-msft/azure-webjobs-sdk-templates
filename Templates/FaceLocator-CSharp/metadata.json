@@ -3,7 +3,7 @@
     "description": "$FaceLocatorCSharp_description",
     "name": "FaceLocator",
     "language": "C#",
-    "trigger": "HttpTrigger",
+    "trigger": "BlobTrigger",
     "category": [
         "$temp_category_samples"
     ],

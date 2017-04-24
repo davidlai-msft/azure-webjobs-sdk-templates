@@ -1,18 +1,15 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using ImageResizer;
 using Microsoft.Azure.WebJobs;
-
-using Microsoft.Azure.WebJobs.Host;
-using System.Collections.Generic;
-using System;
 
 namespace Company.Function
 {
     public static class ImageResizerCSharp
     {
-        [FunctionName("%FunctionName%")]
-        //[StorageAccount("ConnectionName")]
-        public static void Run([BlobTrigger("sample-images/{name}", Connection = "")]Stream image, [Blob("sample-images-sm/{name}", Connection = "")]Stream imageSmall, [Blob("sample-images-md/{name}", Connection = "")]Stream imageMedium)  // output blobs
+        [FunctionName("%FunctionName%")]        
+        public static void Run([BlobTrigger("%ImageBlobPath%", Connection = "%ImageBlobConnection%")]Stream image, [Blob("%SmallImageBlobPath%", Connection = "%SmallImageBlobConnection%")]Stream imageSmall, [Blob("%MedImageBlobPath%", Connection = "%MedImageBlobConnection%")]Stream imageMedium)  // output blobs
         {
             var imageBuilder = ImageResizer.ImageBuilder.Current;
             var size = imageDimensionsTable[ImageSize.Small];
